@@ -11,8 +11,10 @@ from apscheduler.triggers.cron import CronTrigger
 
 app = FastAPI()
 
-SETTINGS_FILE = "/workspace/spec-kit-testproject/backend/settings.json"
-RESULTS_FILE = "/workspace/spec-kit-testproject/backend/results.json"
+import os
+
+SETTINGS_FILE = os.path.join(os.path.dirname(__file__), 'settings.json')
+RESULTS_FILE = os.path.join(os.path.dirname(__file__), 'results.json')
 
 class Settings(BaseModel):
     prompt: str
