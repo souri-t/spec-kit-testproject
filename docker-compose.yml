@@ -18,4 +18,6 @@ services:
       - backend
     volumes:
       - ./frontend:/app
+    environment:
+      - BACKEND_URL=http://backend:50214
 

@@ -11,13 +11,16 @@ from apscheduler.triggers.cron import CronTrigger
 
 app = FastAPI()
 
-SETTINGS_FILE = "/workspace/spec-kit-testproject/backend/settings.json"
-RESULTS_FILE = "/workspace/spec-kit-testproject/backend/results.json"
+import os
+
+SETTINGS_FILE = os.path.join(os.path.dirname(__file__), 'settings.json')
+RESULTS_FILE = os.path.join(os.path.dirname(__file__), 'results.json')
 
 class Settings(BaseModel):
     prompt: str
     execution_time: str  # e.g., "09:00"
     api_key: str
+    model: str = "openai/gpt-4o-mini"
 
 def query_ai():
     if not os.path.exists(SETTINGS_FILE):
@@ -43,7 +46,7 @@ def query_ai():
     for attempt in range(max_retries):
         try:
             response = client.chat.completions.create(
-                model="openai/gpt-4o-mini",
+                model=settings.get('model', 'openai/gpt-4o-mini'),
                 messages=[{"role": "user", "content": settings['prompt']}]
             )
             result = {
@@ -89,7 +92,10 @@ def get_settings():
     if os.path.exists(SETTINGS_FILE):
         try:
             with open(SETTINGS_FILE, 'r') as f:
-                return json.load(f)
+                data = json.load(f)
+                # Fill defaults if missing
+                settings_obj = Settings(**data)
+                return settings_obj.dict()
         except Exception as e:
             return {"error": str(e)}
     return {"error": "No settings found"}
