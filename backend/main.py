@@ -12,9 +12,32 @@ from apscheduler.triggers.cron import CronTrigger
 app = FastAPI()
 
 import os
+from cryptography.fernet import Fernet
+import base64
 
 SETTINGS_FILE = os.path.join(os.path.dirname(__file__), 'settings.json')
 RESULTS_FILE = os.path.join(os.path.dirname(__file__), 'results.json')
+ENCRYPTION_KEY_FILE = os.path.join(os.path.dirname(__file__), 'encryption.key')
+
+def generate_or_load_key():
+    if not os.path.exists(ENCRYPTION_KEY_FILE):
+        key = Fernet.generate_key()
+        with open(ENCRYPTION_KEY_FILE, 'wb') as f:
+            f.write(key)
+    with open(ENCRYPTION_KEY_FILE, 'rb') as f:
+        return f.read()
+
+def encrypt_api_key(api_key: str, key: bytes) -> str:
+    f = Fernet(key)
+    encrypted = f.encrypt(api_key.encode())
+    return base64.urlsafe_b64encode(encrypted).decode()
+
+def decrypt_api_key(encrypted_api_key: str, key: bytes) -> str:
+    f = Fernet(key)
+    decoded = base64.urlsafe_b64decode(encrypted_api_key.encode())
+    return f.decrypt(decoded).decode()
+
+KEY = generate_or_load_key()
 
 class Settings(BaseModel):
     prompt: str
@@ -31,6 +54,7 @@ def query_ai():
     try:
         with open(SETTINGS_FILE, 'r') as f:
             settings = json.load(f)
+        settings['api_key'] = decrypt_api_key(settings['api_key'], KEY)
     except Exception as e:
         error_msg = str(e)
         with open(RESULTS_FILE, 'w') as f:
@@ -71,8 +95,11 @@ def query_ai():
 @app.post("/settings")
 def save_settings(settings: Settings):
     try:
+        encrypted_key = encrypt_api_key(settings.api_key, KEY)
+        save_data = settings.dict()
+        save_data['api_key'] = encrypted_key
         with open(SETTINGS_FILE, 'w') as f:
-            json.dump(settings.dict(), f, indent=4)
+            json.dump(save_data, f, indent=4)
         # Update scheduler if needed
         scheduler = getattr(app.state, 'scheduler', None)
         if scheduler:
@@ -93,6 +120,7 @@ def get_settings():
         try:
             with open(SETTINGS_FILE, 'r') as f:
                 data = json.load(f)
+                data['api_key'] = decrypt_api_key(data['api_key'], KEY)
                 # Fill defaults if missing
                 settings_obj = Settings(**data)
                 return settings_obj.dict()
