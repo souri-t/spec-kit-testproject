@@ -3,3 +3,4 @@ uvicorn[standard]
 apscheduler
 openai
 pydantic
+cryptography
