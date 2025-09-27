@@ -1,0 +1,21 @@
+
+
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "50214:50214"
+    volumes:
+      - ./backend:/app  # For persistent settings and results
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "55930:8501"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+
