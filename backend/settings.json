@@ -1,5 +1,5 @@
 {
-    "prompt": "What is the weather today?",
-    "execution_time": "09:00",
-    "api_key": "dummy_key"
+    "prompt": "\u4ee5\u4e0b\u306e\u56fd\u306e\u4eba\u53e3\u3092\u307e\u3068\u3081\u3066\u3002\n- \u65e5\u672c\n- \u7c73\u56fd\n- \u4e2d\u56fd",
+    "execution_time": "04:51",
+    "api_key": "v1-39b24ec1c412821024250a0e62cfa5a9cecf5e0eaaae58d07accbfdb7fab679e"
 }

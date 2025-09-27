@@ -92,7 +92,10 @@ def get_settings():
     if os.path.exists(SETTINGS_FILE):
         try:
             with open(SETTINGS_FILE, 'r') as f:
-                return json.load(f)
+                data = json.load(f)
+                # Fill defaults if missing
+                settings_obj = Settings(**data)
+                return settings_obj.dict()
         except Exception as e:
             return {"error": str(e)}
     return {"error": "No settings found"}

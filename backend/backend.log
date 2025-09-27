@@ -30,3 +30,58 @@ INFO:     192.168.65.1:46422 - "GET / HTTP/1.1" 404 Not Found
 INFO:     192.168.65.1:63694 - "GET / HTTP/1.1" 404 Not Found
 INFO:     192.168.65.1:18666 - "GET / HTTP/1.1" 404 Not Found
 INFO:     192.168.65.1:26732 - "GET / HTTP/1.1" 404 Not Found
+INFO:     192.168.65.1:42271 - "GET / HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49858 - "GET /settings HTTP/1.1" 200 OK
+/workspace/spec-kit-testproject/backend/main.py:72: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+  json.dump(settings.dict(), f, indent=4)
+INFO:     127.0.0.1:49866 - "POST /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49878 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49888 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39386 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39398 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39414 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39430 - "POST /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39438 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39454 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36300 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36306 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36312 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34534 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34546 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35582 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35596 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35604 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35610 - "POST /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35624 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35628 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48272 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48282 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48294 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46086 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46090 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48980 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48996 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49002 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49014 - "POST /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49030 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49046 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49062 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49074 - "POST /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49086 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49096 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49104 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49116 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57296 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57306 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37270 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37272 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37276 - "POST /query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50548 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50556 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50570 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50578 - "POST /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50584 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50596 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50604 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50616 - "GET /result HTTP/1.1" 200 OK
+INFO:     192.168.65.1:28531 - "GET / HTTP/1.1" 404 Not Found
