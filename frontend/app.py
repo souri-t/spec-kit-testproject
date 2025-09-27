@@ -4,7 +4,7 @@ import streamlit as st
 import requests
 import json
 
-BACKEND_URL = "http://localhost:50214"
+BACKEND_URL = "http://backend:50214"
 
 def get_settings():
     try:
