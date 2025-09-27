@@ -1,0 +1,26 @@
+/workspace/spec-kit-testproject/backend/main.py:112: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("startup")
+/workspace/spec-kit-testproject/backend/main.py:129: DeprecationWarning: 
+        on_event is deprecated, use lifespan event handlers instead.
+
+        Read more about it in the
+        [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+        
+  @app.on_event("shutdown")
+INFO:     Started server process [1941]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:50214 (Press CTRL+C to quit)
+/workspace/spec-kit-testproject/backend/main.py:72: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.11/migration/
+  json.dump(settings.dict(), f, indent=4)
+INFO:     127.0.0.1:59410 - "POST /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59414 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59424 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56366 - "GET /settings HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56372 - "GET /result HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56376 - "POST /query HTTP/1.1" 200 OK
