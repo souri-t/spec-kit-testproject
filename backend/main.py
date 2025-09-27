@@ -18,6 +18,7 @@ class Settings(BaseModel):
     prompt: str
     execution_time: str  # e.g., "09:00"
     api_key: str
+    model: str = "openai/gpt-4o-mini"
 
 def query_ai():
     if not os.path.exists(SETTINGS_FILE):
@@ -43,7 +44,7 @@ def query_ai():
     for attempt in range(max_retries):
         try:
             response = client.chat.completions.create(
-                model="openai/gpt-4o-mini",
+                model=settings.get('model', 'openai/gpt-4o-mini'),
                 messages=[{"role": "user", "content": settings['prompt']}]
             )
             result = {

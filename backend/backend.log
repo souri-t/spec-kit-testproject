@@ -24,3 +24,6 @@ INFO:     127.0.0.1:59424 - "GET /result HTTP/1.1" 200 OK
 INFO:     127.0.0.1:56366 - "GET /settings HTTP/1.1" 200 OK
 INFO:     127.0.0.1:56372 - "GET /result HTTP/1.1" 200 OK
 INFO:     127.0.0.1:56376 - "POST /query HTTP/1.1" 200 OK
+INFO:     192.168.65.1:64728 - "GET / HTTP/1.1" 404 Not Found
+INFO:     192.168.65.1:54435 - "GET / HTTP/1.1" 404 Not Found
+INFO:     192.168.65.1:46422 - "GET / HTTP/1.1" 404 Not Found

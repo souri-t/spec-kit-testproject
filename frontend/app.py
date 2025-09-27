@@ -40,16 +40,19 @@ with tab1:
         prompt = st.text_area("Prompt", value=settings.get("prompt", ""), height=200)
         execution_time = st.text_input("Execution Time (HH:MM)", value=settings.get("execution_time", "09:00"))
         api_key = st.text_input("Open Router API Key", value=settings.get("api_key", ""), type="password")
+        model = st.text_input("OpenRouter Model", value=settings.get("model", "openai/gpt-4o-mini"))
     else:
         prompt = st.text_area("Prompt", height=200)
         execution_time = st.text_input("Execution Time (HH:MM)", "09:00")
         api_key = st.text_input("Open Router API Key", type="password")
+        model = st.text_input("OpenRouter Model", "openai/gpt-4o-mini")
 
     if st.button("Save Settings"):
         new_settings = {
             "prompt": prompt,
             "execution_time": execution_time,
-            "api_key": api_key
+            "api_key": api_key,
+            "model": model
         }
         result = save_settings(new_settings)
         if result and "status" in result:
