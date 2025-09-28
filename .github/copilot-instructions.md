@@ -19,6 +19,7 @@ tests/
 : Follow standard conventions
 
 ## Recent Changes
+- 002-playwright-mcp-docker: Added [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
 - 001-web-n-n: Added [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
 - 001-web-n-n: Added
 

@@ -1,0 +1,44 @@
+openapi: 3.0.0
+info:
+  title: Playwright MCP Web Data API
+  version: 1.0.0
+paths:
+  /collect:
+    post:
+      summary: Webデータ収集依頼
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                max_pages:
+                  type: integer
+                  description: 技術的上限まで
+      responses:
+        '200':
+          description: 収集結果
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        url:
+                          type: string
+                        content:
+                          type: string
+                        collected_at:
+                          type: string
+                          format: date-time
+        '400':
+          description: 不正リクエスト
+        '500':
+          description: MCPエラー
